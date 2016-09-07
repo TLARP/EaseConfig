@@ -1,3 +1,5 @@
+package config;
+
 import java.io.*;
 
 /**
@@ -5,7 +7,7 @@ import java.io.*;
  */
 public class ObjectFileExchange {
 
-    ObjectFileExchange(){
+   public ObjectFileExchange(){
         userDir=System.getProperty("user.dir");
         FileName="ConfigInfoObject";
     }
@@ -19,7 +21,11 @@ public class ObjectFileExchange {
 
         File file=new File(filePath);
         if(!file.exists()){
-            return;
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
 
         try {
@@ -39,7 +45,11 @@ public class ObjectFileExchange {
         File file=new File(filePath);
 
         if(!file.exists()){
-            return null;
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
 
         try {
